@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.venv/
+__pycache__/
+data/
+temp_frames/
+*.mp4
+*.mp3
+.env
+.env.local
+*.zip
