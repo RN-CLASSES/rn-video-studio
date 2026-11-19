@@ -15,8 +15,15 @@ from .router import LESSONS
 from .solver import ProblemError
 
 app = FastAPI(title="RN Video Studio", docs_url=None, redoc_url=None)
-app.add_middleware(CORSMiddleware, allow_origins=config.CORS_ORIGINS,
-                   allow_methods=["GET", "POST"], allow_headers=["Content-Type"])
+app.add_middleware(
+    CORSMiddleware, 
+    allow_origins=[
+        "https://m-video-studio.vercel.app", 
+        "http://localhost:3000"
+    ],
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"],
+)
 manager = JobManager()
 
 _hits = defaultdict(deque)

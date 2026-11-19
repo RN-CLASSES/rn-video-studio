@@ -9,3 +9,5 @@ temp_frames/
 .env
 .env.local
 *.zip
+.vercel
+.env*
