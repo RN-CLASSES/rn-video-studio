@@ -19,6 +19,7 @@ app.add_middleware(
     CORSMiddleware, 
     allow_origins=[
         "https://m-video-studio.vercel.app", 
+        "https://m-video-studio-git-main-rn-classes.vercel.app", # <-- Add this line
         "http://localhost:3000"
     ],
     allow_methods=["GET", "POST"],
