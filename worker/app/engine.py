@@ -115,9 +115,10 @@ def build_video(scenes: List[Scene], out_path: str, workdir: str, title: str = "
         clip = os.path.join(workdir, f"c{i}.mp4")
         length = tts.synth(sc.voice, audio)
         draw_board(board.items, png, title)
-        _ffmpeg([config.FFMPEG, "-y", "-loop", "1", "-framerate", "24", "-i", png, "-i", audio,
-                 "-c:v", "libx264", "-tune", "stillimage", "-pix_fmt", "yuv420p", "-r", "24",
-                 "-c:a", "aac", "-b:a", "128k", "-ar", "44100", "-ac", "2",
+        _ffmpeg([config.FFMPEG, "-y", "-loop", "1", "-framerate", "8", "-i", png, "-i", audio,
+                 "-c:v", "libx264", "-preset", "ultrafast", "-tune", "stillimage",
+                 "-crf", "28", "-pix_fmt", "yuv420p", "-r", "8",
+                 "-c:a", "aac", "-b:a", "96k", "-ar", "44100", "-ac", "2",
                  "-af", "apad=pad_dur=0.6", "-t", f"{length + 0.6:.2f}", clip])
         clips.append(clip)
 
