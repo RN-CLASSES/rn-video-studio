@@ -18,7 +18,7 @@ app = FastAPI(title="RN Video Studio", docs_url=None, redoc_url=None)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=config.CORS_ORIGINS,
-    allow_origin_regex=r"https://rn-video-studio.*\.vercel\.app",
+    allow_origin_regex="https://rn-video-studio.*\.vercel\.app",
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
