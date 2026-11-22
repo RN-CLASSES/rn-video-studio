@@ -16,12 +16,9 @@ from .solver import ProblemError
 
 app = FastAPI(title="RN Video Studio", docs_url=None, redoc_url=None)
 app.add_middleware(
-    CORSMiddleware, 
-    allow_origins=[
-        "https://m-video-studio.vercel.app", 
-        "https://m-video-studio-git-main-rn-classes.vercel.app", # <-- Add this line
-        "http://localhost:3000"
-    ],
+    CORSMiddleware,
+    allow_origins=config.CORS_ORIGINS,
+    allow_origin_regex=r"https://rn-video-studio.*\.vercel\.app",
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
